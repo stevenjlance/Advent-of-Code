@@ -22,8 +22,5 @@ for(let i = 0; i < input.length; i++){
     if(overlap(firstRange[0], firstRange[1], secondRange[0], secondRange[1]) || overlap(secondRange[0], secondRange[1], firstRange[0], firstRange[1])){
         count++
     }
-    else {
-        console.log(firstRange, secondRange)
-    }
 }
 console.log(count)
