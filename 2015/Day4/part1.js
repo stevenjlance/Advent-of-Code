@@ -7,7 +7,7 @@ let hexCode = 0;
 
 for (var i=0; i<99999999; i++) {
 
-	//Converts puzzle input plus i integer tp hexcode
+	//Converts puzzle input plus i integer to hexcode
 	hexCode = MD5(secretKey + i.toString());
 
 	//Test for five leading 0s in hexCode
@@ -26,5 +26,7 @@ for (var i=0; i<99999999; i++) {
 		break;
 	}
 }
+// Part 1
 console.log('Lowest Number containing five 0s: ' + lowestFiveNum);
+// Part 2
 console.log('Lowest Number containing six 0s: ' + lowestSixNum);
