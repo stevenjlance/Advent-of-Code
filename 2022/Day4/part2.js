@@ -5,7 +5,6 @@ function overlap(num1, num2, min, max){
     num2 = parseInt(num2, 10);
     min = parseInt(min, 10);
     max = parseInt(max, 10);
-    // console.log(num1, num2, min, max)
     if(num1 >= min && num1 <= max){
         return true
     }
