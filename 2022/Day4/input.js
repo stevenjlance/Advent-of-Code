@@ -7,8 +7,6 @@ let input = fs
 	.trim()
 	.split('\n')
     .map(str => str.split(','))
-	
-console.log(input)
 
 module.exports = {
 	input,
