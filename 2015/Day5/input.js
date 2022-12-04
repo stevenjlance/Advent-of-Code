@@ -7,6 +7,7 @@ let input = fs
 	.trim()
     .split('\n')
 
+    
 module.exports = {
 	input,
 };
