@@ -1,5 +1,3 @@
-// const stacks = [["M", "S", "J", "L", "V", "F", "N", "R"], ["H", "W", "J", "F", "Z", "D", "N", "P"], ["G", "D", "C", ]]
-
 const path = require('path');
 const fs = require('fs');
 
