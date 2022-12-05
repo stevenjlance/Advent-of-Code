@@ -10,7 +10,17 @@ let input = fs
 	.split('\n\n')
     .map(str => str.split('\n'))
 
-const commands = input[1]
+const commandString = input[1]
+const commands = []
+
+commandString.forEach(command => {
+    const fix = command.split(" ")
+    // format is how many to move, starting col, ending col
+    const arr = [fix[1], fix[3], fix[5]]
+    commands.push(arr)
+})
+
+
 let stacks = input[0]
 let updatedStack = []
 for(let i = 0; i < stacks.length; i++){
