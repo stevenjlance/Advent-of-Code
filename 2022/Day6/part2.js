@@ -38,6 +38,7 @@ for(let i = 13; i < data.length; i++){
             break;
         }
     }
+    // Only reset characters if there was duplicate. End otherwise.
     if(found){
         char1 = char2
         char2 = char3
