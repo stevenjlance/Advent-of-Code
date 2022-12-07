@@ -80,9 +80,10 @@ function part1(tree) {
     let sumSmallFolder = 0;
   
     getSize(tree, (name, size) => {
-      if (size < thresholdSize) {
-        sumSmallFolder += size;
-      }
+        // Only return sizes for those smaller than 100000
+        if (size < thresholdSize) {
+            sumSmallFolder += size;
+        }
     });
   
     console.log(sumSmallFolder);
