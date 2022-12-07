@@ -61,17 +61,17 @@ const makeTree = (input) => {
 // Generate a file tree from the data
 let tree = makeTree(input)
 
-const getSize = (node, directorCallback = () => {}) => {
+const getSize = (node, directoryCallback = () => {}) => {
     // if the node is not a directory, then we are at the bottom of the tree
     if(!node.isDirectory){
         return node.size;
     }
     // Find the size of each child. Call function recursively if it is not a file.
     const directorySize = node.children
-    .map((child) => getSize(child, directorCallback))
+    .map((child) => getSize(child, directoryCallback))
     // Sum
     .reduce((a, b) => a + b, 0)
-    directorCallback(node.name, directorySize)
+    directoryCallback(node.name, directorySize)
     return directorySize
 }
 
@@ -89,3 +89,8 @@ function part1(tree) {
 }
 
 part1(tree)
+
+module.exports = {
+	tree,
+    getSize
+};
