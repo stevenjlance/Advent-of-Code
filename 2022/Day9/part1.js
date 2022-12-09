@@ -1,5 +1,5 @@
 const { input } = require("./input");
-
+// Start in the middle so you don't go off the grid.
 let Hx = 500;
 let Hy = 500;
 let Tx = 500;
