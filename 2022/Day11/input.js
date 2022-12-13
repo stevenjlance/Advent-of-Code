@@ -17,6 +17,8 @@ let input = fs
 //        false: monkeyNum
 //     },
 // }
+
+
 let monkies = {
 
 }
