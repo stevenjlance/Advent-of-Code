@@ -27,7 +27,6 @@ while(!found){
     if(straightCheck && iOL && doubleCheck) {
         found = true;
     }
-    console.log(password)
 }
 console.log(password)
 function updatePassword(str){
