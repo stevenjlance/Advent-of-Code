@@ -1,4 +1,5 @@
-let input = "hxbxwxba"
+// Take input from part 1 to solve part 2
+let input = "hxbxxyzz"
 
 let found = false;
 
@@ -26,14 +27,14 @@ while(!found){
     if(straightCheck && iOL && doubleCheck) {
         found = true;
     }
-
+    console.log(password)
 }
 console.log(password)
 function updatePassword(str){
     let charObj = charCodes(password)
     let aCount = "";
     for(let i = str.length - 1; i >= 0; i--){
-        if(charObj[i] < 121){
+        if(charObj[i] < 122){
             let newLetter = String.fromCharCode(charObj[i] + 1);
             str = str.slice(0, i - 8);
             str = str + newLetter + aCount;
