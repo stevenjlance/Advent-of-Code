@@ -29,6 +29,7 @@ while(!found){
     }
 }
 console.log(password)
+
 function updatePassword(str){
     let charObj = charCodes(password)
     let aCount = "";
