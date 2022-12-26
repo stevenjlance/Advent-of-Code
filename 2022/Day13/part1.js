@@ -60,13 +60,15 @@ function part1() {
     data.map(({left, right}, index) => {
         let result = {}; //undefined until set
         checkOrder(left, right, result)
-        console.log(result.rightOrder)
         if(result.rightOrder){
             indexCount += index + 1;
         }
-        
     })
-    console.log(indexCount)
+    console.log(`Part 1 Answer: ${indexCount}`)
 }
 
 part1();
+
+module.exports = {
+    checkOrder
+}
