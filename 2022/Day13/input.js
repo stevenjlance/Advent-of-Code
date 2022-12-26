@@ -6,8 +6,17 @@ let input = fs
 	.toString()
 	.trim()
 	.split('\n\n')
-    .map(line => line.split('\n'))
 
+function parseInput(){
+	return input.map(group => {
+		const [left, right] = group.split('\n').map(line => JSON.parse(line))
+		return {
+			left,
+			right,
+		}
+	})
+}
+let data = parseInput()
 module.exports = {
-    input,
+    data
 }

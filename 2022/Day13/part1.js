@@ -1,43 +1,72 @@
-const { input } = require("./input");
+const {data} = require("./input");
 
 let indexCount = 0;
 
-input.forEach((val, index) => {
-    let adjustedIndex = index + 1;
-    let left = val[0];
-    let right = val[1];
-    let leftBracketCount = (left.match(/\[/g) || []).length;
-    let rightBracketCount = (right.match(/\[/g) || []).length;
-    // If true they are both integer lists
-    if(leftBracketCount === 1 & rightBracketCount === 1){
-        // if left side is less than or equal to the right side. If left side is bigger, than it will be out of order automatically.
-        if(left.length <= right.length){
-            left = left.slice(1,-1);
-            right = right.slice(1,-1)
-            let flag = true;
-            for(let i = 0; i < left.length; i++){
-                if(left[i] !== "," && left[i] > right[i]){
-                    flag = false // Left side is not smaller than right so it is not in the right order.
-                    break;
-                }
-            }
-            if(flag) {
-                indexCount += adjustedIndex;
-            }
+function checkOrder(left, right, result) {
+    const leftIsNumber = typeof left === "number";
+    const rightIsNumber = typeof right === "number";
+    if(leftIsNumber && rightIsNumber){
+        if(left < right){
+            result.rightOrder = true;
+            return;
+        }
+        if(left > right){
+            result.rightOrder = false;
+            return;
         }
     }
-    
+    else if(!leftIsNumber && !rightIsNumber){
+        let index = 0;
+        // loop
+        while(true){
+            if(index > left.length - 1 && index <= right.length - 1){
+                // left runs out of items
+                result.rightOrder = true;
+                return;
+            }
+            else if(index <= left.length - 1 && index > right.length - 1) {
+                // right runs out of items
+                result.rightOrder = false;
+                return;
+            }
+            else if(index > left.length - 1 && index > right.length - 1){
+                // Both lists run out of items. No decision
+                return;
+            }
+            checkOrder(left[index], right[index], result)
+            // Stop the loop if we don't have undefined
+            if(typeof result.rightOrder !== "undefined"){
+                return;
+            }
+            index++;
+        }
+        
+    }
     else {
-        left = left.slice(1,-1)
-        right = right.slice(1,-1)
-        for(let i = 0; i < left.length; i++){
-            let num = left[i]
-            
-            console.log(left[i])
+        // Transform left into an array
+        if(leftIsNumber){
+            checkOrder([left], right, result)
         }
-        // console.log(left, right)
+        // Transform right into an array
+        else {
+            checkOrder(left, [right], result)
+        }
     }
+}
 
-})
+function part1() {
+    let indexCount = 0;
+    // checkOrder(data[3].left, data[3].right, result)
+    data.map(({left, right}, index) => {
+        let result = {}; //undefined until set
+        checkOrder(left, right, result)
+        console.log(result.rightOrder)
+        if(result.rightOrder){
+            indexCount += index + 1;
+        }
+        
+    })
+    console.log(indexCount)
+}
 
-// console.log(indexCount)
+part1();
