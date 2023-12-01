@@ -1,7 +1,7 @@
 const { input } = require('./input');
+let words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 
 function getFirstDigit(str) {
-    let words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
     let substring = ''
     let flag = false
     for(let i = 0; i < str.length; i++){
@@ -23,7 +23,6 @@ function getFirstDigit(str) {
 }
 
 function getLastDigit(str) {
-    let words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
     let flag = false
     let substring = ''
     for(let i = str.length - 1; i >= 0; i--){
