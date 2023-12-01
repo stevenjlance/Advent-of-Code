@@ -1,5 +1,4 @@
 const { input } = require('./input');
-// const { getLastDigit } = require('./part1');
 
 function getFirstDigit(str) {
     let words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
@@ -47,11 +46,15 @@ function getLastDigit(str) {
 }
 
 // Get for all values and sum them up
-let sum = 0;
-for(let i = 0; i < input.length; i++){
-   let firstDigit = getFirstDigit(input[i])
-   let lastDigit = getLastDigit(input[i])
-   let digit = firstDigit + lastDigit
-   sum += Number(digit)
+function sumAll(data){
+    let sum = 0;
+    for(let i = 0; i < data.length; i++){
+        let firstDigit = getFirstDigit(data[i])
+        let lastDigit = getLastDigit(data[i])
+        let digit = firstDigit + lastDigit
+        sum += Number(digit)
+    }
+    return sum
 }
-console.log(sum)
+// Part 2 Answer
+console.log(sumAll(input))
