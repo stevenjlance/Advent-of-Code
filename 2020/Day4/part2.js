@@ -28,11 +28,22 @@ passports.forEach(passport => {
         // hgt (Height) - a number followed by either cm or in:
             // If cm, the number must be at least 150 and at most 193.
             // If in, the number must be at least 59 and at most 76.
-        console.log(passport.hgt)
+        let measurement = passport.hgt.substring(passport.hgt.length - 2)
+        if(measurement === "cm" && (passport.hgt.substring(0, 3) < 150 || passport.hgt.substring(0, 3) > 193)) valid = false;
+        if(measurement === "in" && (passport.hgt.substring(0, 3) < 59 || passport.hgt.substring(0, 3) > 76)) valid = false;
         // hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
+        if(passport.hcl[0] !== "#") valid = false;
+        if(/[g-z]/i.test(passport.hcl.substring(1))) valid = false
         // ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
+        let allowedEyes = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
+        if(!allowedEyes.includes(passport.ecl)) valid = false
+
         // pid (Passport ID) - a nine-digit number, including leading zeroes.
+        if(passport.pid.length !== 9 || /[a-z]/i.test(passport.pid)) valid = false
+        // If valid, update the count
+        if(valid) validCount++;
     }
 })
 
 // Part 2 answer
+console.log(validCount)
