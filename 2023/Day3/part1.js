@@ -36,14 +36,12 @@ console.log(partNumberCount)
 
 // Box building function
 function makeBox(row, col, number, input) {
-    // Return the standard box grid if it's not the first row, last row, or edges
     // Get box size
     const boxSize = number.length;
 
     let box = []
     let topColIterator = col + (boxSize * -1)
     for(let i = 0; i < boxSize + 2; i++){
-        // -2 -1 0 1
         // Get all values in row above if they exist
         if(topColIterator >= 0 && row > 0) {
             box.push(input[row - 1][topColIterator])
@@ -52,13 +50,9 @@ function makeBox(row, col, number, input) {
         if(topColIterator >= 0 && row < input.length -1) {
             box.push(input[row + 1][topColIterator])
         }
-            
         topColIterator++
     }
     // Get value to left of number if exists
-    // 1 digit ==> -1
-    // 2 digit ==> -2
-    // 3 digit ==> -3
     if(col - boxSize > 0){
         box.push(input[row][col - boxSize])
     }
