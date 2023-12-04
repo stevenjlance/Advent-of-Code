@@ -5,12 +5,12 @@ input.forEach(card => {
     // Array of structure [card #, numbers to test, winning numbers]
     let testCard = card[0].trim().split(": ")
     testCard.push(card[1].trim())
-    // Pull off candidate and winning numbers. Replace all double spaces with single spaces
+    // Pull off candidate and winning numbers. Replace all double spaces with single spaces. Covert each string to a number
     let candidateNumbers = testCard[1].trim().replace(/\s+/g, ' ').split(" ").map(num => Number(num))
     let winningNumbers = testCard[2].trim().replace(/\s+/g, ' ').split(" ").map(num => Number(num))
-    // Covert each string to a number
 
     candidateNumbers.forEach(num => {
+        // If it has a winning number, update points
         if(winningNumbers.includes(num)){
             if(cardPoints === 0) cardPoints = 1;
             else cardPoints *= 2;
