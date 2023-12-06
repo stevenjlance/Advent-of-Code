@@ -30,3 +30,7 @@ function seedCalculator(grid, seed){
     }
     return seed
 }
+
+module.exports = {
+    seedCalculator
+}
