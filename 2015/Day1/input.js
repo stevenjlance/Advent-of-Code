@@ -7,5 +7,5 @@ let input = fs
 	.trim()
 
 module.exports = {
-	input,
+	input
 };
